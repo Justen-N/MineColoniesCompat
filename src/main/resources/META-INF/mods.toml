@@ -1,0 +1,22 @@
+modLoader="javafml" #mandatory
+loaderVersion="[35,)" #mandatory
+license="All rights reserved"
+[[mods]] #mandatory
+# The modid of the mod
+modId="minecoloniescompat" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Minecolonies Compat" #mandatory
+authors= "LostHalfling"
+description = '''Minecolonies Compat is an addon and compatibility layer for the popular mod Minecolonies'''
+[[dependencies.minecoloniescompat]]
+modId="minecolonies"
+mandatory=false
+versionRange="[0.13.548,]"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.minecoloniescompat]]
+modId="eanimod"
+mandatory=false
+versionRange="[0.6.5,]"
+ordering="AFTER"
+side="BOTH"
