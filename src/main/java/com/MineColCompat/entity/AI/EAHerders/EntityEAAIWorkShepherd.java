@@ -189,7 +189,7 @@ public class EntityEAAIWorkShepherd extends AbstractEntityAIHerder<JobShepherd, 
      */
     private void dyeSheepChance(final EnhancedSheep sheep)
     {
-        if (worker.getCitizenColonyHandler().getWorkBuilding() != null && ((BuildingShepherd) worker.getCitizenColonyHandler().getWorkBuilding()).isDyeSheeps())
+        if (worker.getCitizenColonyHandler().getWorkBuilding() != null && ((BuildingShepherd) worker.getCitizenColonyHandler().getWorkBuilding()).getSetting(BuildingShepherd.DYEING).getValue())
         {
             final int chanceToDye = worker.getCitizenColonyHandler().getWorkBuilding().getBuildingLevel();
 

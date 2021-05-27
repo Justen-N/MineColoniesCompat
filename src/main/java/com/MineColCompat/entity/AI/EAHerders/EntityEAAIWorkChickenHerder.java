@@ -1,5 +1,6 @@
 package com.MineColCompat.entity.AI.EAHerders;
 
+import com.MineColCompat.colony.jobs.EAJobChickenHerder;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
 import com.minecolonies.api.entity.citizen.VisibleCitizenStatus;
 import com.minecolonies.api.util.ItemStackUtils;
@@ -16,7 +17,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TranslationTextComponent;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
@@ -24,7 +24,7 @@ import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
 /**
  * The AI behind the {@link JobChickenHerder} for Breeding and Killing Chickens.
  */
-public class EntityEAAIWorkChickenHerder extends AbstractEntityAIHerder<JobChickenHerder, BuildingChickenHerder, EnhancedChicken>
+public class EntityEAAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobChickenHerder, BuildingChickenHerder, EnhancedChicken>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -42,7 +42,7 @@ public class EntityEAAIWorkChickenHerder extends AbstractEntityAIHerder<JobChick
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkChickenHerder(@NotNull final JobChickenHerder job)
+    public EntityEAAIWorkChickenHerder(final EAJobChickenHerder job)
     {
         super(job);
     }

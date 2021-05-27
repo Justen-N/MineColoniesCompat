@@ -1,14 +1,13 @@
 package com.MineColCompat;
 
+import com.MineColCompat.proxy.CommonProxyMCC;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -39,6 +38,7 @@ public class MineColCompat
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        Mod.EventBusSubscriber.Bus.MOD.bus().get().register(CommonProxyMCC.class);
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -46,8 +46,6 @@ public class MineColCompat
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        GameRegistry.findRegistry(JobEntry.class);
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -80,7 +78,7 @@ public class MineColCompat
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+        public static void onJobRegistry(final RegistryEvent.Register<JobEntry> blockRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
         }
