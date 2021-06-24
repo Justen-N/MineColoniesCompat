@@ -21,7 +21,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     /**
      * Description of the job executed in the hut.
      */
-    private static final String JOB = "eachickenherder";
+    private static final String JOB = "chickenherder";
 
     /**
      * The hut name, used for the lang string in the GUI
@@ -61,7 +61,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public String getJobName()
     {
-        return JOB;
+        return "eachickenherder";
     }
 
     @NotNull
