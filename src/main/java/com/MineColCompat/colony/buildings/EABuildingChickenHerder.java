@@ -26,7 +26,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     /**
      * The hut name, used for the lang string in the GUI
      */
-    private static final String HUT_NAME = "eachickenherderhut";
+    private static final String HUT_NAME = "chickenherderhut";
 
     /**
      * Max building level of the hut.
@@ -88,7 +88,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public BuildingEntry getBuildingRegistryEntry()
     {
-        return MCCBuildings.eaChickenHerder;
+        return MCCBuildings.ChickenHerder;
     }
 
     /**

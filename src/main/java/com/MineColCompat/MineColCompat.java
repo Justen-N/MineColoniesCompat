@@ -1,8 +1,12 @@
 package com.MineColCompat;
 
+import com.MineColCompat.blocks.MCCBlocks;
 import com.MineColCompat.proxy.CommonProxyMCC;
+import com.ldtteam.structurize.util.StructureLoadingUtils;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -46,11 +50,13 @@ public class MineColCompat
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        StructureLoadingUtils.addOriginMod("minecoloniescompat");
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        RenderTypeLookup.setRenderLayer(MCCBlocks.blockHutEAChickenHerder, renderType -> renderType.equals(RenderType.getCutout()) || renderType.equals(RenderType.getSolid()));
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
