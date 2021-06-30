@@ -16,12 +16,12 @@ public class MCCJobsInitializer {
     public static void init(final RegistryEvent.Register<JobEntry> event){
         final IForgeRegistry<JobEntry> reg = GameRegistry.findRegistry(JobEntry.class);
 
-        MCCJobs.eachickenHerder = new JobEntry.Builder()
+        MCCJobs.eaChickenHerder = new JobEntry.Builder()
                                 .setJobProducer(EAJobChickenHerder::new)
                                 .setJobViewProducer(() -> DefaultJobView::new)
                                 .setRegistryName(MCCJobs.EA_CHICKEN_HERDER_ID)
                                 .createJobEntry();
-        reg.register(MCCJobs.eachickenHerder);
+        reg.register(MCCJobs.eaChickenHerder);
     }
 
 }
