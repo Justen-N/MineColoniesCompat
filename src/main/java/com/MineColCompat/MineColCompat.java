@@ -87,6 +87,7 @@ public class MineColCompat
         public static void onJobRegistry(final RegistryEvent.Register<JobEntry> blockRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
+
         }
     }
 }

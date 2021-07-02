@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "minecoloniescompat:block/blockhuteachickenherder",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "minecoloniescompat:block/blockhuteachickenherder",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "minecoloniescompat:block/blockhuteachickenherder",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "minecoloniescompat:block/blockhuteachickenherder",
+      "y": 270
+    }
+  }
+}

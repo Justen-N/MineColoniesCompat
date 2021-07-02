@@ -22,13 +22,13 @@ public class MCCBuildingInitializer {
     public static void init(final RegistryEvent.Register<BuildingEntry> event)
     {
         final IForgeRegistry<BuildingEntry> reg = GameRegistry.findRegistry(BuildingEntry.class);
-        MCCBuildings.ChickenHerder =new BuildingEntry.Builder()
+        MCCBuildings.EAChickenHerder =new BuildingEntry.Builder()
                                     .setBuildingBlock(MCCBlocks.blockHutEAChickenHerder)
                                     .setBuildingProducer(EABuildingChickenHerder::new)
                                     .setBuildingViewProducer(() -> EABuildingChickenHerder.View::new)
                                     .setRegistryName(new ResourceLocation("minecoloniescompat",MCCBuildings.EA_CHICKEN_HERDER_ID))
                                     .addBuildingModuleProducer(() -> new SettingsModule().with(AbstractBuildingWorker.BREEDING, new BoolSetting(true)), SettingsModuleView::new)
                                     .createBuildingEntry();
-        reg.register(MCCBuildings.ChickenHerder);
+        reg.register(MCCBuildings.EAChickenHerder);
     }
 }

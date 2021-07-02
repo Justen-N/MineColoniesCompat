@@ -11,7 +11,6 @@ import com.minecolonies.api.util.constant.TranslationConstants;
 import com.minecolonies.coremod.colony.buildings.AbstractBuildingWorker;
 import com.minecolonies.coremod.colony.jobs.AbstractJob;
 import com.minecolonies.coremod.entity.ai.basic.AbstractEntityAIInteract;
-import mokiyoki.enhancedanimals.entity.EnhancedAnimalAbstract;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.item.Item;
@@ -24,6 +23,8 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +39,7 @@ import static com.minecolonies.api.util.constant.ToolLevelConstants.TOOL_LEVEL_W
 /**
  * Abstract class for all Citizen Herder AIs
  */
-public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B extends AbstractBuildingWorker, T extends EnhancedAnimalAbstract> extends AbstractEntityAIInteract<J, B>
+public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B extends AbstractBuildingWorker, T extends AnimalEntity> extends AbstractEntityAIInteract<J, B>
 {
     /**
      * How many animals per hut level the worker should max have.
@@ -159,7 +160,7 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
     {
         worker.getCitizenData().setVisibleStatus(VisibleCitizenStatus.WORKING);
 
-        final List<T> animals = new ArrayList<>(searchForAnimals());
+        final List<AnimalEntity> animals = searchForAnimals();
 
         if (animals.isEmpty())
         {
@@ -273,7 +274,7 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      */
     protected IAIState butcherAnimals()
     {
-        final List<T> animals = new ArrayList<>(searchForAnimals());
+        final List<AnimalEntity> animals = new ArrayList<>(searchForAnimals());
 
         if (!maxAnimals(animals))
         {
@@ -314,7 +315,7 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      */
     protected IAIState breedAnimals()
     {
-        final List<T> animals = searchForAnimals();
+        final List<AnimalEntity> animals = searchForAnimals();
 
         final AnimalEntity animalOne = animals
                 .stream()
@@ -359,7 +360,7 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      */
     protected IAIState feedAnimals()
     {
-        final List<T> animals = searchForAnimals();
+        final List<AnimalEntity> animals = searchForAnimals();
 
         final AnimalEntity animalOne = animals
                 .stream()
@@ -419,9 +420,15 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      *
      * @return the {@link List} of animals in the area.
      */
-    public List<T> searchForAnimals()
+    public List<AnimalEntity> searchForAnimals()
     {
-        return WorldUtil.getEntitiesWithinBuilding(world, getAnimalClass(), getOwnBuilding(), null);
+        List<AnimalEntity> animals = new ArrayList<>();
+        String compare = getAnimalClass().toString();
+        ForgeRegistries.ENTITIES.getKeys()
+                .stream()
+                .filter(a -> a.toString().contains(compare))
+                .forEach(entity -> animals.addAll(WorldUtil.getEntitiesWithinBuilding(world,RegistryObject.of(entity,ForgeRegistries.ENTITIES).get().getClass().asSubclass(AnimalEntity.class), getOwnBuilding(),null)));
+        return animals;
     }
 
     public int getMaxAnimalMultiplier()
@@ -495,11 +502,11 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      * @param allAnimals the list of animals.
      * @return if amount of animals is over max.
      */
-    public boolean maxAnimals(final List<T> allAnimals)
+    public boolean maxAnimals(final List<AnimalEntity> allAnimals)
     {
         if (getOwnBuilding() != null)
         {
-            final List<T> animals = allAnimals.stream()
+            final List<AnimalEntity> animals = allAnimals.stream()
                     .filter(animalToButcher -> !animalToButcher.isChild()).collect(Collectors.toList());
 
             if (animals.isEmpty())

@@ -21,12 +21,12 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     /**
      * Description of the job executed in the hut.
      */
-    private static final String JOB = "chickenherder";
+    private static final String JOB = "eachickenherder";
 
     /**
      * The hut name, used for the lang string in the GUI
      */
-    private static final String HUT_NAME = "chickenherderhut";
+    private static final String HUT_NAME = "eachickenherderhut";
 
     /**
      * Max building level of the hut.
@@ -61,7 +61,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public String getJobName()
     {
-        return "eachickenherder";
+        return JOB;
     }
 
     @NotNull
@@ -88,7 +88,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public BuildingEntry getBuildingRegistryEntry()
     {
-        return MCCBuildings.ChickenHerder;
+        return MCCBuildings.EAChickenHerder;
     }
 
     /**

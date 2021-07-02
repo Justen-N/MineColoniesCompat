@@ -18,6 +18,6 @@ public class BlockHutEAChickenHerder extends AbstractBlockHut<BlockHutEAChickenH
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        return MCCBuildings.ChickenHerder;
+        return MCCBuildings.EAChickenHerder;
     }
 }
