@@ -4,8 +4,8 @@ import com.MineColCompat.colony.buildings.MCCBuildings;
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 
-public class BlockHutEAChickenHerder extends AbstractBlockHut<BlockHutEAChickenHerder> {
-    public BlockHutEAChickenHerder()
+public class BlockHutMCCChickenHerder extends AbstractBlockHut<BlockHutMCCChickenHerder> {
+    public BlockHutMCCChickenHerder()
     {
         //No different from Abstract parent
         super();
@@ -13,11 +13,11 @@ public class BlockHutEAChickenHerder extends AbstractBlockHut<BlockHutEAChickenH
 
     @Override
     public String getName() {
-        return "blockhuteachickenherder";
+        return "blockhutmccchickenherder";
     }
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        return MCCBuildings.EAChickenHerder;
+        return MCCBuildings.MCCChickenHerder;
     }
 }

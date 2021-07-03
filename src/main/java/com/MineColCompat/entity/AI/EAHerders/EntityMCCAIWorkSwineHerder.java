@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * The AI behind the {@link JobSwineHerder} for Breeding and Killing Pigs.
  */
-public class EntityEAAIWorkSwineHerder extends AbstractEntityAIHerder<JobSwineHerder, BuildingSwineHerder, PigEntity>
+public class EntityMCCAIWorkSwineHerder extends AbstractEntityAIHerder<JobSwineHerder, BuildingSwineHerder, PigEntity>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -23,7 +23,7 @@ public class EntityEAAIWorkSwineHerder extends AbstractEntityAIHerder<JobSwineHe
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkSwineHerder(@NotNull final JobSwineHerder job)
+    public EntityMCCAIWorkSwineHerder(@NotNull final JobSwineHerder job)
     {
         super(job);
     }

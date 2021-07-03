@@ -1,7 +1,7 @@
 package com.MineColCompat.apiimp.initializer;
 
 import com.MineColCompat.blocks.MCCBlocks;
-import com.MineColCompat.blocks.huts.BlockHutEAChickenHerder;
+import com.MineColCompat.blocks.huts.BlockHutMCCChickenHerder;
 import com.minecolonies.api.creativetab.ModCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class MCCBlocksInitializer {
 
     public static void init(final IForgeRegistry<Block> registry)
     {
-        MCCBlocks.blockHutEAChickenHerder = new BlockHutEAChickenHerder().registerBlock(registry);
+        MCCBlocks.blockHutMCCChickenHerder = new BlockHutMCCChickenHerder().registerBlock(registry);
     }
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
@@ -34,6 +34,6 @@ public class MCCBlocksInitializer {
     public static void registerBlockItem(final IForgeRegistry<Item> registry)
     {
         final Item.Properties properties = new Item.Properties().group(ModCreativeTabs.MINECOLONIES);
-        MCCBlocks.blockHutEAChickenHerder.registerBlockItem(registry,properties);
+        MCCBlocks.blockHutMCCChickenHerder.registerBlockItem(registry,properties);
     }
 }

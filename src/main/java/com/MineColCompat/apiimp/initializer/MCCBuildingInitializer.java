@@ -1,7 +1,7 @@
 package com.MineColCompat.apiimp.initializer;
 
 import com.MineColCompat.blocks.MCCBlocks;
-import com.MineColCompat.colony.buildings.EABuildingChickenHerder;
+import com.MineColCompat.colony.buildings.MCCBuildingChickenHerder;
 import com.MineColCompat.colony.buildings.MCCBuildings;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.coremod.colony.buildings.AbstractBuildingWorker;
@@ -22,13 +22,13 @@ public class MCCBuildingInitializer {
     public static void init(final RegistryEvent.Register<BuildingEntry> event)
     {
         final IForgeRegistry<BuildingEntry> reg = GameRegistry.findRegistry(BuildingEntry.class);
-        MCCBuildings.EAChickenHerder =new BuildingEntry.Builder()
-                                    .setBuildingBlock(MCCBlocks.blockHutEAChickenHerder)
-                                    .setBuildingProducer(EABuildingChickenHerder::new)
-                                    .setBuildingViewProducer(() -> EABuildingChickenHerder.View::new)
-                                    .setRegistryName(new ResourceLocation("minecoloniescompat",MCCBuildings.EA_CHICKEN_HERDER_ID))
-                                    .addBuildingModuleProducer(() -> new SettingsModule().with(AbstractBuildingWorker.BREEDING, new BoolSetting(true)), SettingsModuleView::new)
+        MCCBuildings.MCCChickenHerder =new BuildingEntry.Builder()
+                                    .setBuildingBlock(MCCBlocks.blockHutMCCChickenHerder)
+                                    .setBuildingProducer(MCCBuildingChickenHerder::new)
+                                    .setBuildingViewProducer(() -> MCCBuildingChickenHerder.View::new)
+                                    .setRegistryName(new ResourceLocation("minecoloniescompat",MCCBuildings.MCC_CHICKEN_HERDER_ID))
+                                    .addBuildingModuleProducer(() -> new SettingsModule().with(AbstractBuildingWorker.BREEDING, new BoolSetting(true)), () -> {return SettingsModuleView::new;})
                                     .createBuildingEntry();
-        reg.register(MCCBuildings.EAChickenHerder);
+        reg.register(MCCBuildings.MCCChickenHerder);
     }
 }

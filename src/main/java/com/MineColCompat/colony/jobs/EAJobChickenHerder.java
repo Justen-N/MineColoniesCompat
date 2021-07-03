@@ -1,6 +1,6 @@
 package com.MineColCompat.colony.jobs;
 
-import com.MineColCompat.entity.AI.EAHerders.EntityEAAIWorkChickenHerder;
+import com.MineColCompat.entity.AI.EAHerders.EntityMCCAIWorkChickenHerder;
 import com.minecolonies.api.client.render.modeltype.BipedModelType;
 import com.minecolonies.api.colony.ICitizenData;
 import com.minecolonies.api.colony.jobs.ModJobs;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * The Chicken Herder job
  */
-public class EAJobChickenHerder extends AbstractJob<EntityEAAIWorkChickenHerder, EAJobChickenHerder>
+public class EAJobChickenHerder extends AbstractJob<EntityMCCAIWorkChickenHerder, EAJobChickenHerder>
 {
     /**
      * Instantiates the placeholder job.
@@ -46,9 +46,9 @@ public class EAJobChickenHerder extends AbstractJob<EntityEAAIWorkChickenHerder,
      */
     @Nullable
     @Override
-    public EntityEAAIWorkChickenHerder generateAI()
+    public EntityMCCAIWorkChickenHerder generateAI()
     {
-        return new EntityEAAIWorkChickenHerder(this);
+        return new EntityMCCAIWorkChickenHerder(this);
     }
 
     @Override

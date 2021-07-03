@@ -24,7 +24,7 @@ import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
 /**
  * The AI behind the {@link JobChickenHerder} for Breeding and Killing Chickens.
  */
-public class EntityEAAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobChickenHerder, BuildingChickenHerder, EnhancedChicken>
+public class EntityMCCAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobChickenHerder, BuildingChickenHerder, EnhancedChicken>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -42,7 +42,7 @@ public class EntityEAAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobChi
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkChickenHerder(final EAJobChickenHerder job)
+    public EntityMCCAIWorkChickenHerder(final EAJobChickenHerder job)
     {
         super(job);
     }

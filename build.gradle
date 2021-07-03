@@ -121,8 +121,8 @@ dependencies {
     // Real examples
     // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-       implementation fg.deobf('curse.maven:minecolonies-245506:3326889')
-       implementation fg.deobf('curse.maven:structurize-298744:3321839')
+       implementation fg.deobf('curse.maven:minecolonies-245506:3374065')
+       implementation fg.deobf('curse.maven:structurize-298744:3371231')
        implementation fg.deobf('curse.maven:geneticanimals-313213:3231397')
     // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'

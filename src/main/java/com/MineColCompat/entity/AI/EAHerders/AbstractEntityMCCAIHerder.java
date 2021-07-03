@@ -39,7 +39,7 @@ import static com.minecolonies.api.util.constant.ToolLevelConstants.TOOL_LEVEL_W
 /**
  * Abstract class for all Citizen Herder AIs
  */
-public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B extends AbstractBuildingWorker, T extends AnimalEntity> extends AbstractEntityAIInteract<J, B>
+public abstract class AbstractEntityMCCAIHerder<J extends AbstractJob<?, J>, B extends AbstractBuildingWorker, T extends AnimalEntity> extends AbstractEntityAIInteract<J, B>
 {
     /**
      * How many animals per hut level the worker should max have.
@@ -93,7 +93,7 @@ public abstract class AbstractEntityEAAIHerder<J extends AbstractJob<?, J>, B ex
      *
      * @param job the job to fulfill.
      */
-    public AbstractEntityEAAIHerder(@NotNull final J job)
+    public AbstractEntityMCCAIHerder(@NotNull final J job)
     {
         super(job);
         super.registerTargets(

@@ -10,13 +10,14 @@ import com.minecolonies.api.colony.jobs.IJob;
 import com.minecolonies.api.entity.citizen.Skill;
 import com.minecolonies.coremod.client.gui.huts.WindowHutWorkerModulePlaceholder;
 import com.minecolonies.coremod.colony.buildings.AbstractBuildingWorker;
+import com.minecolonies.coremod.colony.buildings.views.AbstractBuildingWorkerView;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Creates a new building for the Chicken Herder.
  */
-public class EABuildingChickenHerder extends AbstractBuildingWorker
+public class MCCBuildingChickenHerder extends AbstractBuildingWorker
 {
     /**
      * Description of the job executed in the hut.
@@ -39,7 +40,7 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
      * @param c the colony.
      * @param l the location.
      */
-    public EABuildingChickenHerder(final IColony c, final BlockPos l)
+    public MCCBuildingChickenHerder(final IColony c, final BlockPos l)
     {
         super(c, l);
     }
@@ -88,13 +89,13 @@ public class EABuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public BuildingEntry getBuildingRegistryEntry()
     {
-        return MCCBuildings.EAChickenHerder;
+        return MCCBuildings.MCCChickenHerder;
     }
 
     /**
      * ClientSide representation of the building.
      */
-    public static class View extends AbstractBuildingWorker.View
+    public static class View extends AbstractBuildingWorkerView
     {
         /**
          * Instantiates the view of the building.

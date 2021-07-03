@@ -23,7 +23,7 @@ import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
 /**
  * The AI behind the {@link JobRabbitHerder} for Breeding and Killing Rabbits.
  */
-public class EntityEAAIWorkRabbitHerder extends AbstractEntityAIHerder<JobRabbitHerder, BuildingRabbitHutch, EnhancedRabbit>
+public class EntityMCCAIWorkRabbitHerder extends AbstractEntityAIHerder<JobRabbitHerder, BuildingRabbitHutch, EnhancedRabbit>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -35,7 +35,7 @@ public class EntityEAAIWorkRabbitHerder extends AbstractEntityAIHerder<JobRabbit
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkRabbitHerder(@NotNull final JobRabbitHerder job)
+    public EntityMCCAIWorkRabbitHerder(@NotNull final JobRabbitHerder job)
     {
         super(job);
     }

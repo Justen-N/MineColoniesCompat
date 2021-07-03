@@ -29,7 +29,7 @@ import static com.minecolonies.api.util.constant.Constants.TICKS_SECOND;
 /**
  * The AI behind the {@link JobShepherd} for Breeding, Killing and Shearing sheep.
  */
-public class EntityEAAIWorkShepherd extends AbstractEntityAIHerder<JobShepherd, BuildingShepherd, EnhancedSheep>
+public class EntityMCCAIWorkShepherd extends AbstractEntityAIHerder<JobShepherd, BuildingShepherd, EnhancedSheep>
 {
     /**
      * Experience given per sheep sheared.
@@ -52,7 +52,7 @@ public class EntityEAAIWorkShepherd extends AbstractEntityAIHerder<JobShepherd, 
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkShepherd(@NotNull final JobShepherd job)
+    public EntityMCCAIWorkShepherd(@NotNull final JobShepherd job)
     {
         super(job);
         super.registerTargets(

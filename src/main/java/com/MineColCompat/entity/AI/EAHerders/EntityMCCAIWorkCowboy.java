@@ -1,6 +1,8 @@
 package com.MineColCompat.entity.AI.EAHerders;
 
+import com.minecolonies.api.crafting.ItemStorage;
 import com.minecolonies.api.entity.ai.statemachine.AITarget;
+import com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
 import com.minecolonies.api.entity.citizen.VisibleCitizenStatus;
 import com.minecolonies.api.util.InventoryUtils;
@@ -25,7 +27,7 @@ import static com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState.*
 /**
  * The AI behind the {@link JobCowboy} for Breeding, Killing and Milking Cows.
  */
-public class EntityEAAIWorkCowboy extends AbstractEntityAIHerder<JobCowboy, BuildingCowboy, EnhancedCow>
+public class EntityMCCAIWorkCowboy extends AbstractEntityAIHerder<JobCowboy, BuildingCowboy, EnhancedCow>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -43,7 +45,7 @@ public class EntityEAAIWorkCowboy extends AbstractEntityAIHerder<JobCowboy, Buil
      *
      * @param job the job to fulfill
      */
-    public EntityEAAIWorkCowboy(@NotNull final JobCowboy job)
+    public EntityMCCAIWorkCowboy(@NotNull final JobCowboy job)
     {
         super(job);
         super.registerTargets(
@@ -113,16 +115,12 @@ public class EntityEAAIWorkCowboy extends AbstractEntityAIHerder<JobCowboy, Buil
         worker.getCitizenStatusHandler().setLatestStatus(new TranslationTextComponent(TranslationConstants.COM_MINECOLONIES_COREMOD_STATUS_COWBOY_MILKING));
         worker.getCitizenData().setVisibleStatus(HERD_COW);
 
-        if (!worker.getCitizenInventoryHandler().hasItemInInventory(getBreedingItem().getItem()) && isInHut(new ItemStack(Items.BUCKET, 1)))
-        {
-            if (!walkToBuilding() && getOwnBuilding() != null)
-            {
-                isInTileEntity(getOwnBuilding().getTileEntity(), new ItemStack(Items.BUCKET, 1));
+        if (!this.worker.getCitizenInventoryHandler().hasItemInInventory(this.getBreedingItem().getItem()) && InventoryUtils.getCountFromBuilding(this.getOwnBuilding(), new ItemStorage(new ItemStack(Items.BUCKET, 1))) > 1) {
+            if (this.walkToBuilding()) {
+                return AIWorkerState.DECIDE;
             }
-            else
-            {
-                return DECIDE;
-            }
+
+            this.checkAndTransferFromHut(new ItemStack(Items.BUCKET, 1));
         }
 
         final EnhancedCow cow = searchForAnimals().stream().findFirst().orElse(null);
