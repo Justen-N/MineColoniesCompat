@@ -1,6 +1,6 @@
 package com.MineColCompat.colony.buildings;
 
-import com.MineColCompat.colony.jobs.EAJobChickenHerder;
+import com.MineColCompat.colony.jobs.MCCJobChickenHerder;
 import com.ldtteam.blockout.views.Window;
 import com.minecolonies.api.colony.ICitizenData;
 import com.minecolonies.api.colony.IColony;
@@ -22,12 +22,12 @@ public class MCCBuildingChickenHerder extends AbstractBuildingWorker
     /**
      * Description of the job executed in the hut.
      */
-    private static final String JOB = "eachickenherder";
+    private static final String JOB = "mccchickenherder";
 
     /**
      * The hut name, used for the lang string in the GUI
      */
-    private static final String HUT_NAME = "eachickenherderhut";
+    private static final String HUT_NAME = "mccchickenherderhut";
 
     /**
      * Max building level of the hut.
@@ -83,7 +83,7 @@ public class MCCBuildingChickenHerder extends AbstractBuildingWorker
     @Override
     public IJob<?> createJob(final ICitizenData citizen)
     {
-        return new EAJobChickenHerder(citizen);
+        return new MCCJobChickenHerder(citizen);
     }
 
     @Override

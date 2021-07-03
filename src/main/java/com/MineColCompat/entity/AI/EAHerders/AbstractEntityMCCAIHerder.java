@@ -423,13 +423,15 @@ public abstract class AbstractEntityMCCAIHerder<J extends AbstractJob<?, J>, B e
     public List<AnimalEntity> searchForAnimals()
     {
         List<AnimalEntity> animals = new ArrayList<>();
-        String compare = getAnimalClass().toString();
+         ;
         ForgeRegistries.ENTITIES.getKeys()
                 .stream()
-                .filter(a -> a.toString().contains(compare))
+                .filter(a -> a.toString().contains(getAnimalType()))
                 .forEach(entity -> animals.addAll(WorldUtil.getEntitiesWithinBuilding(world,RegistryObject.of(entity,ForgeRegistries.ENTITIES).get().getClass().asSubclass(AnimalEntity.class), getOwnBuilding(),null)));
         return animals;
     }
+
+    protected abstract String getAnimalType();
 
     public int getMaxAnimalMultiplier()
     {

@@ -1,6 +1,6 @@
 package com.MineColCompat.entity.AI.EAHerders;
 
-import com.MineColCompat.colony.jobs.EAJobChickenHerder;
+import com.MineColCompat.colony.jobs.MCCJobChickenHerder;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
 import com.minecolonies.api.entity.citizen.VisibleCitizenStatus;
 import com.minecolonies.api.util.ItemStackUtils;
@@ -8,7 +8,6 @@ import com.minecolonies.api.util.constant.Constants;
 import com.minecolonies.api.util.constant.TranslationConstants;
 import com.minecolonies.coremod.colony.buildings.workerbuildings.BuildingChickenHerder;
 import com.minecolonies.coremod.colony.jobs.JobChickenHerder;
-import com.minecolonies.coremod.entity.ai.citizen.herders.AbstractEntityAIHerder;
 import com.minecolonies.coremod.util.NamedDamageSource;
 import mokiyoki.enhancedanimals.entity.EnhancedChicken;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -24,7 +23,7 @@ import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
 /**
  * The AI behind the {@link JobChickenHerder} for Breeding and Killing Chickens.
  */
-public class EntityMCCAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobChickenHerder, BuildingChickenHerder, EnhancedChicken>
+public class EntityMCCAIWorkChickenHerder extends AbstractEntityMCCAIHerder<MCCJobChickenHerder, BuildingChickenHerder, EnhancedChicken>
 {
     /**
      * Max amount of animals per Hut Level.
@@ -42,7 +41,7 @@ public class EntityMCCAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobCh
      *
      * @param job the job to fulfill
      */
-    public EntityMCCAIWorkChickenHerder(final EAJobChickenHerder job)
+    public EntityMCCAIWorkChickenHerder(final MCCJobChickenHerder job)
     {
         super(job);
     }
@@ -68,10 +67,13 @@ public class EntityMCCAIWorkChickenHerder extends AbstractEntityAIHerder<EAJobCh
     }
 
     @Override
-    public Class<EnhancedChicken> getAnimalClass()
-    {
+    public Class<EnhancedChicken> getAnimalClass() {
         return EnhancedChicken.class;
     }
+
+    @Override
+    public String getAnimalType() { return "chicken";}
+
 
     @Override
     protected IAIState breedAnimals()

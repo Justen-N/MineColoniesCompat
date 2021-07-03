@@ -1,6 +1,6 @@
 package com.MineColCompat.apiimp.initializer;
 
-import com.MineColCompat.colony.jobs.EAJobChickenHerder;
+import com.MineColCompat.colony.jobs.MCCJobChickenHerder;
 import com.MineColCompat.colony.jobs.MCCJobs;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 import com.minecolonies.coremod.colony.jobs.views.DefaultJobView;
@@ -17,7 +17,7 @@ public class MCCJobsInitializer {
         final IForgeRegistry<JobEntry> reg = GameRegistry.findRegistry(JobEntry.class);
 
         MCCJobs.eaChickenHerder = new JobEntry.Builder()
-                                .setJobProducer(EAJobChickenHerder::new)
+                                .setJobProducer(MCCJobChickenHerder::new)
                                 .setJobViewProducer(() -> DefaultJobView::new)
                                 .setRegistryName(MCCJobs.EA_CHICKEN_HERDER_ID)
                                 .createJobEntry();

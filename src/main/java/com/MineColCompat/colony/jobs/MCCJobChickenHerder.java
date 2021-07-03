@@ -14,14 +14,14 @@ import org.jetbrains.annotations.Nullable;
 /**
  * The Chicken Herder job
  */
-public class EAJobChickenHerder extends AbstractJob<EntityMCCAIWorkChickenHerder, EAJobChickenHerder>
+public class MCCJobChickenHerder extends AbstractJob<EntityMCCAIWorkChickenHerder, MCCJobChickenHerder>
 {
     /**
      * Instantiates the placeholder job.
      *
      * @param entity the entity.
      */
-    public EAJobChickenHerder(final ICitizenData entity)
+    public MCCJobChickenHerder(final ICitizenData entity)
     {
         super(entity);
     }
